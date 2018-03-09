@@ -10,4 +10,17 @@ def loadDataSet():
 	classVec = [0,1]
 	return postingList,classVec
 
-def 
+def createVocabList(dataSet):
+	vocalbSet = set([])
+	for doc in dataSet:
+		vocalSet = vocalbSet | set(doc)
+	return list(vocalbSet)
+
+def setWord2Vec(vocabList,inputSet):
+	returnVec = [0]*len(vocabList)
+	for word in inputSet:
+		if word in vocabList:
+			returnVec[vocabList.index(word)] = 1
+		else:
+			print("the word:%s is not in !")%word
+	return returnVec
